@@ -1,0 +1,53 @@
+############################
+# macOS System Files
+############################
+
+# Finder
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon?
+Icon?
+._*
+
+# macOS special files
+.fseventsd
+.Spotlight-V100
+.Trashes
+.VolumeIcon.icns
+com.apple.metadata:*
+com.apple.macextension.hidden-Dateien
+
+# Time Machine
+com.apple.TimeMachine.*
+*.Recovery
+
+############################
+# Thumbnails / Cache
+############################
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+############################
+# Editor & Cursor IDE Files
+############################
+
+# VS Code / Cursor
+.vscode/
+.history/
+*.code-workspace
+
+# Nano
+*.save
+
+############################
+# Logs / Temp Files
+############################
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
