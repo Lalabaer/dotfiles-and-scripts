@@ -55,6 +55,7 @@ The `scripts/` folder contains automation scripts for setting up your developmen
 | `brew-casks-setup.sh`          | Installs GUI applications via Homebrew Cask (Cursor, VS Code, Docker, etc.) |
 | `asdf-setup-node.sh`           | Sets up Node.js (v20.5.1) using asdf version manager                        |
 | `asdf-setup-ruby.sh`           | Sets up Ruby (v3.3.2) using asdf version manager                            |
+| `choose_editor.sh`.            | Interactive editor selector for terminal and visual editors                 |
 | `enable-touchid-sudo-macos.sh` | Enables Touch ID authentication for sudo commands on macOS                  |
 
 ### Execution Order
@@ -96,7 +97,40 @@ The scripts should be run in the following order to ensure all dependencies are 
     - Installs Ruby v3.3.2
     - Sets it as the global version
 
-6. **`enable-touchid-sudo-macos.sh`** (Standalone, macOS only)
+6. **`choose_editor.sh`**
+
+    - Select terminal (`EDITOR`) and visual (`VISUAL`) editors interactively
+    - Saves choices in `~/.config/editor-choice`
+    - Automatically adds `--wait` for GUI editors (VS Code, Cursor)
+    - Can be sourced to apply changes immediately
+
+    Example:
+
+    ```bash
+    $ source choose_editor.sh
+    Editor config already exists. Overwrite? (y/N): y
+    Overwriting existing config...
+
+    Choose your terminal editor (EDITOR):
+
+    1. Nano (terminal)
+    2. VS Code (GUI)
+    3. Cursor (terminal GUI)
+    Enter choice [1-3]: 1
+    Choose your visual editor (VISUAL):
+    4. Nano (terminal)
+    5. VS Code (GUI)
+    6. Cursor (terminal GUI)
+    Enter choice [1-3]: 2
+
+    $ echo $EDITOR
+    nano
+    $ echo $VISUAL
+    code --wait
+    ```
+
+7. **`enable-touchid-sudo-macos.sh`** (Standalone, macOS only)
+
     - Can be run at any time
     - Enables Touch ID for sudo authentication
     - Creates `/etc/pam.d/sudo_local` configuration
